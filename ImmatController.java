@@ -18,6 +18,7 @@ public class ImmatController {
 	@GetMapping("/aeronef/{immat}")
 	public AeronefDTO getAeronef(@PathVariable("immat") String immat, HttpServletResponse response) {
 		var result = immatService.getAeronefFromImmat(immat);
+		immat = immat.toUpperCase();
 		
 		if (result.isEmpty()) {
 			response.setStatus(SC_NO_CONTENT);
